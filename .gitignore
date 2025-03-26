@@ -25,6 +25,9 @@ __pycache__/
 *.tmp
 *~
 
+# Obsidian personal workspace
+.obsidian/
+
 # 민감할 수 있는 노트/임시 기록
 secret-*
 *.draft.md
