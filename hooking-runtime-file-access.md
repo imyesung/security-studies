@@ -121,8 +121,8 @@ FILE *fopen(const char *pathname, const char *mode) {
 
 ## Note
 
-**Why use `static` for function pointers?**
-Hook 함수가 여러 번 호출되어도 `dlsym()`은 한 번만 실행됨 (성능 + 안정성 향상)
+**Why use `static` for function pointers?** 
+- Hook 함수가 여러 번 호출되어도 `dlsym()`은 한 번만 실행됨 (성능 + 안정성 향상)
 
 **What happens without `dlsym(RTLD_NEXT)`?**
 - `dlsym(RTLD_NEXT)`를 사용하지 않을 경우:
@@ -138,7 +138,7 @@ Hook 함수가 여러 번 호출되어도 `dlsym()`은 한 번만 실행됨 (성
     4. 정상적으로 원본 함수가 실행되어 무한 반복이 발생하지 않음
 
 **Where does `LD_PRELOAD` attach in memory?**
-프로세스 초기화 시, `ld.so`가 `.so`를 ELF 인터프리터 앞에 로드 시 `/proc/[pid]/maps` 상단에서 확인 가능
+- 프로세스 초기화 시, `ld.so`가 `.so`를 ELF 인터프리터 앞에 로드될 경우 `/proc/[pid]/maps` 상단에서 확인 가능
 
 ```
 7f8b12345000-7f8b12346000 r-xp 00000000 08:01 1234567    /path/to/hook.so 
@@ -155,7 +155,7 @@ Hook 함수가 여러 번 호출되어도 `dlsym()`은 한 번만 실행됨 (성
 4. 프로그램은 정상적으로 파일을 열 수 있으면서도, 파일 접근 감시 가능
 
 **Is this detectable?**
-`/proc/[pid]/maps`, `LD_PRELOAD` 환경 변수, `/proc/self/environ` 등으로 감지 가능
+- `/proc/[pid]/maps`, `LD_PRELOAD` 환경 변수, `/proc/self/environ` 등으로 감지 가능
 
 |**기법**|**탐지 우회 대상**|
 |---|---|
