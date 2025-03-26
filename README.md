@@ -10,16 +10,18 @@
 
 ## Note Format
 
-All notes follow the same minimal structure:
-
-- **Title**
-- **Context**
-  - Tactic
-  - Technique
-  - Procedure
-- **Core Idea**
-- **Code / Experiment**
-- **Note**
+All notes follow the same minimal structure: [z-note-template.md](./z-note-template.md)  
+> **Preview**:
+> ```
+> - **Title**
+> - **Context**
+> 	  - Tactic
+> 	  - Technique
+> 	  - Procedure
+> - **Core Idea**
+> - **Code / Experiment**
+> - **Note**
+> ```
 
 ## 
 

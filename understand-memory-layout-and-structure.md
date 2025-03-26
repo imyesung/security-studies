@@ -1,8 +1,8 @@
 
 ## Context
-- **Tactic**: System Architecture Understanding
-- **Technique**: Memory Structure Analysis
-- **Procedure**
+- **Tactic**: Static Memory Model Comprehension
+- **Technique**: Memory Segment Role Analysis
+- **Procedure**:
 	- Analyze the process memory layout to understand the roles and limitations of each virtual address region
 	- Identify regions prone to vulnerabilities (e.g., Stack, Heap, BSS)  
 	- Logically map which memory segments are viable targets for exploitation or defense
@@ -20,8 +20,6 @@
 | Stack             | Local variables and call frames; grows downward, vulnerable to overflow      |
 
 ## Code / Experiment
-
-
 **Memory Layout Visualization Program**  
 The following C code prints the actual memory addresses of key segments in the process:
 ```c

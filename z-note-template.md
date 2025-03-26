@@ -1,8 +1,6 @@
-# Title
-
 ## Context
-- **Tactic**: 
-- **Technique**: 
+- **Tactic**
+- **Technique**
 - **Procedure**
 	- Describe step-by-step procedure here
 	- Can include analysis steps or exploitation paths
@@ -10,7 +8,6 @@
 
 ## Core Idea
 
-![figure-name](./images/example-diagram.svg)  
 **Figure 1.** Diagram title (e.g., structure overview)
 
 | Section | Description |
@@ -36,3 +33,8 @@ int main() {
 ```
 
 ## Note
+- blabla
+- 
+
+
+
