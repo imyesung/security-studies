@@ -11,7 +11,7 @@
 - 최종적으로 실행될 `페이로드(랜섬웨어, RAT, 백도어 등)`를 시스템에 **드롭(Drop)**하여 실행 환경을 구성한다.
 - 스스로 악의적인 행동을 수행하지 않으며, **페이로드를 안전하게 전달하고 실행하는 것이 주목적**이다.
 
-![[dropper-schematic-diagram.png]]
+![Dropper Schematic Diagram](./images/dropper-schematic-diagram.png)
 **Figure 1.** dropper schematic diagram
 ### Dropper의 특징
 - **탐지 회피**: 암호화된 형태로 페이로드를 포함하여 보안 솔루션의 탐지를 우회.
@@ -20,7 +20,7 @@
 - **자기 삭제 기능**: 실행 후 탐지를 피하기 위해 흔적을 자동으로 제거 가능.
 
 ### Dropper 동작 흐름
-![[dropper-execution-flow.png]]
+![Dropper Execution Flow](./images/dropper-execution-flow.png)
 **Figure 2.** dropper execution flow
 
 1. **Dropper 실행** → 사용자가 Dropper(악성 실행 파일)를 실행
@@ -109,26 +109,26 @@ int main() {
 > One of several TTP-focused notes dissecting dropper mechanics.
 
 **dropper-overview.md**
-• **Tactic:** Malware Delivery Understanding
-• **Technique:** Payload Deployment Analysis
-• **Procedure:** Deconstruct dropper behavior and execution stages
+- **Tactic:** Malware Delivery Understanding
+- **Technique:** Payload Deployment Analysis
+- **Procedure:** Deconstruct dropper behavior and execution stages
 
 **dropper-architecture.md**
-• **Tactic:** Stealth Engineering
-• **Technique:** Obfuscation & In-Memory Execution Patterns
-• **Procedure:** Examine dropper file formats, storage methods, and execution models
+- **Tactic:** Stealth Engineering
+- **Technique:** Obfuscation & In-Memory Execution Patterns
+- **Procedure:** Examine dropper file formats, storage methods, and execution models
 
 **dropper-analysis-methods.md**
-• **Tactic:** Threat Traceability
-• **Technique:** Static & Dynamic Binary Analysis
-• **Procedure:** Investigate dropper internals using r2, volatility, and process monitors
+- **Tactic:** Threat Traceability
+- **Technique:** Static & Dynamic Binary Analysis
+- **Procedure:** Investigate dropper internals using r2, volatility, and process monitors
 
 **dropper-code-deepdive.md**
-• **Tactic:** Execution Mechanics Exploration
-• **Technique:** Process Injection & Anti-Analysis
-• **Procedure:** Reverse-engineer memory injection, control flow, and evasion logic
+- **Tactic:** Execution Mechanics Exploration
+- **Technique:** Process Injection & Anti-Analysis
+- **Procedure:** Reverse-engineer memory injection, control flow, and evasion logic
 
 **dropper-mitigation.md**
-• **Tactic:** Adaptive Defense Modeling
-• **Technique:** Behavior Profiling & ML-Aided Detection
-• **Procedure:** Design countermeasures using event logging, hardening, and ML classifiers
+- **Tactic:** Adaptive Defense Modeling
+- **Technique:** Behavior Profiling & ML-Aided Detection
+- **Procedure:** Design countermeasures using event logging, hardening, and ML classifiers
