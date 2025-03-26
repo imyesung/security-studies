@@ -30,12 +30,18 @@ secret-*
 *.draft.md
 *.notes.private.md
 
-# 자동 생성 파일
-*.pdf
+# 일반 이미지 파일 무시
 *.png
 *.jpg
+*.jpeg
 *.svg
-*.html
+
+# 예외: images 폴더만 추적
+!images/
+!images/*.png
+!images/*.jpg
+!images/*.jpeg
+!images/*.svg
 
 # 비공개 제출 파일
 submission/
