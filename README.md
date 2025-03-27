@@ -10,8 +10,6 @@
 ## Recent Notes
 
 <!-- RECENT_CHANGES -->
-### 최근 업데이트 파일
-
 - [understand-memory-layout-and-structure.md](understand-memory-layout-and-structure.md) - 2025-03-27
 - [trace-buffer-lifecycle.md](trace-buffer-lifecycle.md) - 2025-03-27
 - [extract-and-analyze-proc-maps.md](extract-and-analyze-proc-maps.md) - 2025-03-27
@@ -22,8 +20,6 @@
 
 ## TOC
 <!-- RESEARCH_AREAS -->
-### 전체 노트
-
 | 파일 | 수정일 |
 |------|--------|
 | [understand-memory-layout-and-structure.md](understand-memory-layout-and-structure.md) | 2025-03-27 |
