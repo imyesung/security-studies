@@ -14,24 +14,23 @@
 
 - [understand-memory-layout-and-structure.md](understand-memory-layout-and-structure.md) - 2025-03-27
 - [trace-buffer-lifecycle.md](trace-buffer-lifecycle.md) - 2025-03-27
-- [hooking-runtime-file-access.md](hooking-runtime-file-access.md) - 2025-03-27
 - [extract-and-analyze-proc-maps.md](extract-and-analyze-proc-maps.md) - 2025-03-27
+- [hooking-runtime-file-access.md](hooking-runtime-file-access.md) - 2025-03-27
 - [dropper-overview.md](dropper-overview.md) - 2025-03-27
 
 <!-- RECENT_CHANGES_END -->
 
 ## TOC
 <!-- RESEARCH_AREAS -->
-### 연구 영역
+### 전체 노트
 
-#### 기타
-
-- [dropper-overview.md](dropper-overview.md)
-- [extract-and-analyze-proc-maps.md](extract-and-analyze-proc-maps.md)
-- [hooking-runtime-file-access.md](hooking-runtime-file-access.md)
-- [trace-buffer-lifecycle.md](trace-buffer-lifecycle.md)
-- [understand-memory-layout-and-structure.md](understand-memory-layout-and-structure.md)
-
+| 파일 | 수정일 |
+|------|--------|
+| [understand-memory-layout-and-structure.md](understand-memory-layout-and-structure.md) | 2025-03-27 |
+| [trace-buffer-lifecycle.md](trace-buffer-lifecycle.md) | 2025-03-27 |
+| [extract-and-analyze-proc-maps.md](extract-and-analyze-proc-maps.md) | 2025-03-27 |
+| [hooking-runtime-file-access.md](hooking-runtime-file-access.md) | 2025-03-27 |
+| [dropper-overview.md](dropper-overview.md) | 2025-03-27 |
 
 <!-- RESEARCH_AREAS_END -->
 
