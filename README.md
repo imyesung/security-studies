@@ -14,7 +14,7 @@
 - [trace-buffer-lifecycle.md](trace-buffer-lifecycle.md) - 2025-03-27
 - [extract-and-analyze-proc-maps.md](extract-and-analyze-proc-maps.md) - 2025-03-27
 - [hooking-runtime-file-access.md](hooking-runtime-file-access.md) - 2025-03-27
-- [dropper-overview.md](dropper-overview.md) - 2025-03-27
+- [dropper-simulation.md](dropper-simulation.md) - 2025-03-27
 
 <!-- RECENT_CHANGES_END -->
 
@@ -26,6 +26,7 @@
 | [trace-buffer-lifecycle.md](trace-buffer-lifecycle.md) | 2025-03-27 |
 | [extract-and-analyze-proc-maps.md](extract-and-analyze-proc-maps.md) | 2025-03-27 |
 | [hooking-runtime-file-access.md](hooking-runtime-file-access.md) | 2025-03-27 |
+| [dropper-simulation.md](dropper-simulation.md) | 2025-03-27 |
 | [dropper-overview.md](dropper-overview.md) | 2025-03-27 |
 
 <!-- RESEARCH_AREAS_END -->
