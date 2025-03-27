@@ -28,7 +28,8 @@ __pycache__/
 # Obsidian personal workspace
 .obsidian/
 
-# 민감할 수 있는 노트/임시 기록
+# personals
+fleeting-note/
 secret-*
 *.draft.md
 *.notes.private.md
