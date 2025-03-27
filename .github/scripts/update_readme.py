@@ -19,7 +19,7 @@ def get_recent_changes(files, max_items=5):
     entries = [(file, file.stat().st_mtime) for file in files]
     entries.sort(key=lambda x: x[1], reverse=True)
 
-    result = "### 최근 업데이트 파일\n\n"
+    result = ""
     for file, mtime in entries[:max_items]:
         mod_time = datetime.fromtimestamp(mtime).strftime('%Y-%m-%d')
         result += f"- [{file.name}]({file}) - {mod_time}\n"
@@ -29,7 +29,7 @@ def get_full_note_list(files):
     entries = [(file, file.stat().st_mtime) for file in files]
     entries.sort(key=lambda x: x[1], reverse=True)
 
-    result = "### 전체 노트\n\n"
+    result = "" 
     result += "| 파일 | 수정일 |\n"
     result += "|------|--------|\n"
     for file, mtime in entries:
