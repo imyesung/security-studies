@@ -7,6 +7,16 @@
 > Tracing hidden narratives in code while understanding both attacker and defender mindsets.
 
 ---
+## Recent Notes
+
+<!-- RECENT_CHANGES -->
+(여기에 최근 노트 업데이트가 자동 삽입됩니다)
+<!-- RECENT_CHANGES_END -->
+
+## TOC
+<!-- RESEARCH_AREAS -->
+(여기에 전체 노트가 폴더 기준으로 자동 삽입됩니다)
+<!-- RESEARCH_AREAS_END -->
 
 ## Note Format
 
@@ -22,6 +32,4 @@ All notes follow the same minimal structure: [z-note-template.md](./z-note-templ
 > - **Code / Experiment**
 > - **Note**
 > ```
-
-## 
 
