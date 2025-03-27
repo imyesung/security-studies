@@ -10,12 +10,29 @@
 ## Recent Notes
 
 <!-- RECENT_CHANGES -->
-(여기에 최근 노트 업데이트가 자동 삽입됩니다)
+### 최근 업데이트 파일
+
+- [understand-memory-layout-and-structure.md](understand-memory-layout-and-structure.md) - 2025-03-27
+- [Data Flow Summary (How does it move?)](trace-buffer-lifecycle.md) - 2025-03-27
+- [extract-and-analyze-proc-maps.md](extract-and-analyze-proc-maps.md) - 2025-03-27
+- [파일 I/O 시스템 계층도](hooking-runtime-file-access.md) - 2025-03-27
+- [dropper-overview.md](dropper-overview.md) - 2025-03-27
+
 <!-- RECENT_CHANGES_END -->
 
 ## TOC
 <!-- RESEARCH_AREAS -->
-(여기에 전체 노트가 폴더 기준으로 자동 삽입됩니다)
+### 연구 영역
+
+#### 기타
+
+- [extract-and-analyze-proc-maps.md](extract-and-analyze-proc-maps.md)
+- [understand-memory-layout-and-structure.md](understand-memory-layout-and-structure.md)
+- [파일 I/O 시스템 계층도](hooking-runtime-file-access.md)
+- [Data Flow Summary (How does it move?)](trace-buffer-lifecycle.md)
+- [dropper-overview.md](dropper-overview.md)
+
+
 <!-- RESEARCH_AREAS_END -->
 
 ## Note Format
