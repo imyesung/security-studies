@@ -13,9 +13,9 @@
 ### 최근 업데이트 파일
 
 - [understand-memory-layout-and-structure.md](understand-memory-layout-and-structure.md) - 2025-03-27
-- [Data Flow Summary (How does it move?)](trace-buffer-lifecycle.md) - 2025-03-27
+- [trace-buffer-lifecycle.md](trace-buffer-lifecycle.md) - 2025-03-27
+- [hooking-runtime-file-access.md](hooking-runtime-file-access.md) - 2025-03-27
 - [extract-and-analyze-proc-maps.md](extract-and-analyze-proc-maps.md) - 2025-03-27
-- [파일 I/O 시스템 계층도](hooking-runtime-file-access.md) - 2025-03-27
 - [dropper-overview.md](dropper-overview.md) - 2025-03-27
 
 <!-- RECENT_CHANGES_END -->
@@ -26,11 +26,11 @@
 
 #### 기타
 
-- [extract-and-analyze-proc-maps.md](extract-and-analyze-proc-maps.md)
-- [understand-memory-layout-and-structure.md](understand-memory-layout-and-structure.md)
-- [파일 I/O 시스템 계층도](hooking-runtime-file-access.md)
-- [Data Flow Summary (How does it move?)](trace-buffer-lifecycle.md)
 - [dropper-overview.md](dropper-overview.md)
+- [extract-and-analyze-proc-maps.md](extract-and-analyze-proc-maps.md)
+- [hooking-runtime-file-access.md](hooking-runtime-file-access.md)
+- [trace-buffer-lifecycle.md](trace-buffer-lifecycle.md)
+- [understand-memory-layout-and-structure.md](understand-memory-layout-and-structure.md)
 
 
 <!-- RESEARCH_AREAS_END -->
