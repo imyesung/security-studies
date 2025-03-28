@@ -10,11 +10,11 @@
 ## Recent Notes
 
 <!-- RECENT_CHANGES -->
-- [understand-memory-layout-and-structure.md](understand-memory-layout-and-structure.md) - 2025-03-27
-- [trace-buffer-lifecycle.md](trace-buffer-lifecycle.md) - 2025-03-27
-- [extract-and-analyze-proc-maps.md](extract-and-analyze-proc-maps.md) - 2025-03-27
-- [hooking-runtime-file-access.md](hooking-runtime-file-access.md) - 2025-03-27
-- [dropper-simulation.md](dropper-simulation.md) - 2025-03-27
+- [understand-memory-layout-and-structure.md](understand-memory-layout-and-structure.md) - 2025-03-28
+- [trace-buffer-lifecycle.md](trace-buffer-lifecycle.md) - 2025-03-28
+- [extract-and-analyze-proc-maps.md](extract-and-analyze-proc-maps.md) - 2025-03-28
+- [hooking-runtime-file-access.md](hooking-runtime-file-access.md) - 2025-03-28
+- [dropper-overview.md](dropper-overview.md) - 2025-03-28
 
 <!-- RECENT_CHANGES_END -->
 
@@ -22,12 +22,12 @@
 <!-- RESEARCH_AREAS -->
 | 파일 | 수정일 |
 |------|--------|
-| [understand-memory-layout-and-structure.md](understand-memory-layout-and-structure.md) | 2025-03-27 |
-| [trace-buffer-lifecycle.md](trace-buffer-lifecycle.md) | 2025-03-27 |
-| [extract-and-analyze-proc-maps.md](extract-and-analyze-proc-maps.md) | 2025-03-27 |
-| [hooking-runtime-file-access.md](hooking-runtime-file-access.md) | 2025-03-27 |
-| [dropper-simulation.md](dropper-simulation.md) | 2025-03-27 |
-| [dropper-overview.md](dropper-overview.md) | 2025-03-27 |
+| [understand-memory-layout-and-structure.md](understand-memory-layout-and-structure.md) | 2025-03-28 |
+| [trace-buffer-lifecycle.md](trace-buffer-lifecycle.md) | 2025-03-28 |
+| [extract-and-analyze-proc-maps.md](extract-and-analyze-proc-maps.md) | 2025-03-28 |
+| [hooking-runtime-file-access.md](hooking-runtime-file-access.md) | 2025-03-28 |
+| [dropper-overview.md](dropper-overview.md) | 2025-03-28 |
+| [dropper-simulation.md](dropper-simulation.md) | 2025-03-28 |
 
 <!-- RESEARCH_AREAS_END -->
 
