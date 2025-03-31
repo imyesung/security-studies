@@ -10,11 +10,11 @@
 ## Recent Notes
 
 <!-- RECENT_CHANGES -->
-- [understand-memory-layout-and-structure.md](understand-memory-layout-and-structure.md) - 2025-03-30
-- [lang-c-memory-type-system.md](lang-c-memory-type-system.md) - 2025-03-30
-- [trace-buffer-lifecycle.md](trace-buffer-lifecycle.md) - 2025-03-30
-- [extract-and-analyze-proc-maps.md](extract-and-analyze-proc-maps.md) - 2025-03-30
-- [hooking-runtime-file-access.md](hooking-runtime-file-access.md) - 2025-03-30
+- [understand-memory-layout-and-structure.md](understand-memory-layout-and-structure.md) - 2025-03-31
+- [lang-c-memory-type-system.md](lang-c-memory-type-system.md) - 2025-03-31
+- [trace-buffer-lifecycle.md](trace-buffer-lifecycle.md) - 2025-03-31
+- [extract-and-analyze-proc-maps.md](extract-and-analyze-proc-maps.md) - 2025-03-31
+- [hooking-runtime-file-access.md](hooking-runtime-file-access.md) - 2025-03-31
 
 <!-- RECENT_CHANGES_END -->
 
@@ -22,13 +22,13 @@
 <!-- RESEARCH_AREAS -->
 | 파일 | 수정일 |
 |------|--------|
-| [understand-memory-layout-and-structure.md](understand-memory-layout-and-structure.md) | 2025-03-30 |
-| [lang-c-memory-type-system.md](lang-c-memory-type-system.md) | 2025-03-30 |
-| [trace-buffer-lifecycle.md](trace-buffer-lifecycle.md) | 2025-03-30 |
-| [extract-and-analyze-proc-maps.md](extract-and-analyze-proc-maps.md) | 2025-03-30 |
-| [hooking-runtime-file-access.md](hooking-runtime-file-access.md) | 2025-03-30 |
-| [dropper-overview.md](dropper-overview.md) | 2025-03-30 |
-| [dropper-simulation.md](dropper-simulation.md) | 2025-03-30 |
+| [understand-memory-layout-and-structure.md](understand-memory-layout-and-structure.md) | 2025-03-31 |
+| [lang-c-memory-type-system.md](lang-c-memory-type-system.md) | 2025-03-31 |
+| [trace-buffer-lifecycle.md](trace-buffer-lifecycle.md) | 2025-03-31 |
+| [extract-and-analyze-proc-maps.md](extract-and-analyze-proc-maps.md) | 2025-03-31 |
+| [hooking-runtime-file-access.md](hooking-runtime-file-access.md) | 2025-03-31 |
+| [dropper-overview.md](dropper-overview.md) | 2025-03-31 |
+| [dropper-simulation.md](dropper-simulation.md) | 2025-03-31 |
 
 <!-- RESEARCH_AREAS_END -->
 
