@@ -108,15 +108,15 @@ int main() {
 
 > One of several TTP-focused notes dissecting dropper mechanics.
 
-**dropper-overview.md**
+**[dropper-overview.md](dropper-overview.md)**
 - **Tactic:** Malware Delivery Understanding
 - **Technique:** Payload Deployment Analysis
 - **Procedure:** Deconstruct dropper behavior and execution stages
 
-**dropper-architecture.md**
-- **Tactic:** Stealth Engineering
-- **Technique:** Obfuscation & In-Memory Execution Patterns
-- **Procedure:** Examine dropper file formats, storage methods, and execution models
+**[dropper-simulation.md](dropper-simulation.md)**
+- **Tactic**: Stealth Engineering
+- **Technique**: Dropper Simulation & In-Memory Execution Models
+- **Procedure**: Simulate dropper behavior including persistence, obfuscation, anti-analysis, and payload deployment
 
 **dropper-analysis-methods.md**
 - **Tactic:** Threat Traceability
