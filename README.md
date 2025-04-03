@@ -10,10 +10,16 @@
 
 ## Recent Notes
 
-*이 섹션은 자동 업데이트됩니다.*
+<!-- RECENT_NOTES_START -->
+*자동 업데이트*
+<!-- RECENT_NOTES_END -->
+
 ## TOC
 
-*이 섹션은 자동 업데이트됩니다.*
+<!-- TOC_START -->
+*자동 업데이트*
+<!-- TOC_END -->
+
 ## Note Format
 
 All notes follow the same minimal structure: [z-note-template.md](z-note-template.md)

@@ -9,10 +9,10 @@ from pathlib import Path
 
 # --- Configuration ---
 README_PATH = Path("README.md")
-RECENT_NOTES_TAG_START = ""
-RECENT_NOTES_TAG_END = ""
-TOC_TAG_START = ""
-TOC_TAG_END = ""
+RECENT_NOTES_TAG_START = "<!-- RECENT_NOTES_START -->"  # 수정!
+RECENT_NOTES_TAG_END = "<!-- RECENT_NOTES_END -->"      # 수정!
+TOC_TAG_START = "<!-- TOC_START -->"                    # 수정!
+TOC_TAG_END = "<!-- TOC_END -->"                        # 수정!
 
 EXCLUDE_FILES = {'README.md', 'z-note-template.md'}
 EXCLUDE_DIRS_LOWER = {'drafts', 'fleeting-note', '.git', '.github', '.venv', '.vscode', 'images'}
