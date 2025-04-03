@@ -1,127 +1,167 @@
+#!/usr/bin/env python3
 import os
 import re
 import subprocess
+import sys
+import urllib.parse
 from datetime import datetime
 from pathlib import Path
 
-def get_last_commit_date(file_path_str):
-    """주어진 파일 경로 문자열에 대한 마지막 Git 커밋 날짜를 YYYY-MM-DD 형식으로 반환합니다."""
+# --- Configuration ---
+README_PATH = Path("README.md")
+RECENT_NOTES_TAG_START = ""
+RECENT_NOTES_TAG_END = ""
+TOC_TAG_START = ""
+TOC_TAG_END = ""
+
+EXCLUDE_FILES = {'README.md', 'z-note-template.md'}
+EXCLUDE_DIRS_LOWER = {'drafts', 'fleeting-note', '.git', '.github', '.venv', '.vscode', 'images'}
+MAX_RECENT_NOTES = 5
+# --- End Configuration ---
+
+def get_last_commit_date(file_path_str: str) -> str:
+    """Gets the last commit date (YYYY-MM-DD) for a file using git log."""
     try:
-        # git log 명령어 실행 (파일 경로는 문자열이어야 함)
         cmd = ['git', 'log', '-1', '--format=%cs', '--', file_path_str]
         result = subprocess.run(cmd, capture_output=True, text=True, check=True, encoding='utf-8', errors='ignore')
         commit_date = result.stdout.strip()
-        # 유효한 날짜 형식인지 간단히 확인 (YYYY-MM-DD)
         if re.match(r'^\d{4}-\d{2}-\d{2}$', commit_date):
             return commit_date
         else:
-            # 예상치 못한 출력이면 경고 후 오늘 날짜 반환
-            print(f"Warning: Unexpected git log output for {file_path_str}: '{commit_date}'. Using today's date.")
-            return datetime.now().strftime('%Y-%m-%d')
-
-    except subprocess.CalledProcessError:
-        # 파일이 Git 추적 중이 아니거나, 커밋이 없는 경우 등
-        # print(f"Warning: Could not get git log for {file_path_str}. Using file system mtime as fallback.")
-        # Git 기록이 없는 경우, 파일 시스템 수정 시간을 대신 사용하거나 오늘 날짜 사용
-        try:
-            mtime = Path(file_path_str).stat().st_mtime
-            return datetime.fromtimestamp(mtime).strftime('%Y-%m-%d')
-        except FileNotFoundError:
-            return datetime.now().strftime('%Y-%m-%d') # 파일이 없으면 오늘 날짜
+            print(f"Warning: Unexpected git log format for {file_path_str}: '{commit_date}'.", file=sys.stderr)
+            return "N/A"
+    except subprocess.CalledProcessError as e:
+        # Usually means file is not tracked or has no commits yet
+        # print(f"Debug: git log failed for {file_path_str}: {e}", file=sys.stderr)
+        return "N/A"
     except FileNotFoundError:
-        print("Error: 'git' command not found. Is Git installed and in PATH?")
-        # Git 명령어를 찾을 수 없는 경우 오늘 날짜 반환
-        return datetime.now().strftime('%Y-%m-%d')
+        print("Error: 'git' command not found. Is Git installed?", file=sys.stderr)
+        return "Error"
     except Exception as e:
-        print(f"Error getting commit date for {file_path_str}: {e}")
-        # 기타 예외 발생 시 오늘 날짜 반환
-        return datetime.now().strftime('%Y-%m-%d')
+        print(f"Error getting commit date for {file_path_str}: {e}", file=sys.stderr)
+        return "Error"
 
-
-def get_files_with_commit_dates():
-    """
-    저장소 내 필터링된 마크다운 파일과 각 파일의 마지막 Git 커밋 날짜 목록을 반환합니다.
-    결과는 [(Path 객체, 'YYYY-MM-DD'), ...] 형태의 리스트입니다.
-    """
-    files_with_dates = []
-    for file_path_obj in Path('.').glob('**/*.md'):
-        # --- 기존 필터링 로직 ---
-        if 'README.md' in str(file_path_obj) or 'z-note-template.md' in str(file_path_obj):
+def get_markdown_files_data() -> list[tuple[Path, str]]:
+    """Finds markdown files, gets their last commit dates, and sorts them."""
+    files_data = []
+    repo_root = Path('.')
+    for file_path in repo_root.glob('**/*.md'):
+        # Check exclusion lists
+        if file_path.name in EXCLUDE_FILES:
             continue
-        if any(part.startswith('.') for part in file_path_obj.parts):
+        if any(part.startswith('.') for part in file_path.parts):
             continue
-        # drafts 또는 fleeting-note 디렉토리에 있는 파일 제외 (소문자 비교)
-        if any(part.lower() in {'drafts', 'fleeting-note'} for part in file_path_obj.parts):
-             continue
-        # --- 필터링 끝 ---
+        is_in_excluded_dir = False
+        # Check parent directories (case-insensitive)
+        for parent in file_path.parents:
+            if parent.name.lower() in EXCLUDE_DIRS_LOWER:
+                is_in_excluded_dir = True
+                break
+        if is_in_excluded_dir:
+            continue
 
-        # 파일 경로를 문자열로 변환하여 마지막 커밋 날짜 가져오기
-        commit_date = get_last_commit_date(str(file_path_obj))
-        files_with_dates.append((file_path_obj, commit_date))
+        # Get commit date
+        commit_date = get_last_commit_date(str(file_path))
+        files_data.append((file_path, commit_date))
 
-    # 커밋 날짜를 기준으로 내림차순 정렬 (최신 날짜가 위로)
-    files_with_dates.sort(key=lambda x: x[1], reverse=True)
-    return files_with_dates
+    # Sort by date (descending), handle N/A or Error dates by putting them last
+    def sort_key(item):
+        date_str = item[1]
+        if date_str in ["N/A", "Error"]:
+            return "0000-00-00" # Sort errors/N/A to the end
+        return date_str
 
-def get_recent_changes(files_data, max_items=5):
-    """주어진 파일 데이터 리스트에서 최근 변경된 항목 문자열 생성"""
-    result = ""
-    # 이미 날짜순으로 정렬되어 있으므로 상위 N개만 사용
-    for file_path_obj, commit_date in files_data[:max_items]:
-        # 링크 생성 시 Path 객체를 문자열로 변환하고, URL 인코딩이 필요할 수 있으나
-        # 보통 마크다운에서는 상대 경로로 잘 동작함. 필요시 urllib.parse.quote 사용.
-        link_path = str(file_path_obj).replace("\\", "/") # Windows 경로 구분자 변경
-        result += f"- [{file_path_obj.stem}]({link_path}) - {commit_date}\n" # .name 대신 .stem 사용 (확장자 제외)
-    return result
+    files_data.sort(key=sort_key, reverse=True)
+    print(f"Found and processed {len(files_data)} markdown files.")
+    return files_data
 
-def get_full_note_list(files_data):
-    """주어진 파일 데이터 리스트에서 전체 노트 목록 테이블 문자열 생성"""
-    result = ""
-    result += "| 파일명 | 최종 수정일 |\n"
-    result += "|--------|-------------|\n"
-    # 전체 목록 순회
-    for file_path_obj, commit_date in files_data:
-        link_path = str(file_path_obj).replace("\\", "/") # Windows 경로 구분자 변경
-        result += f"| [{file_path_obj.stem}]({link_path}) | {commit_date} |\n" # .name 대신 .stem 사용 (확장자 제외)
-    return result
+def generate_recent_notes_md(files_data: list[tuple[Path, str]]) -> str:
+    """Generates markdown list for recent notes."""
+    lines = []
+    for file_path, commit_date in files_data[:MAX_RECENT_NOTES]:
+        link_path = urllib.parse.quote(str(file_path).replace("\\", "/"))
+        link_text = file_path.stem # Filename without extension
+        lines.append(f"- [{link_text}]({link_path}) - {commit_date}")
+    return "\n".join(lines)
 
-def update_readme():
-    """README.md 파일을 읽고, 최신 변경사항과 전체 노트 목록을 업데이트합니다."""
+def generate_toc_md(files_data: list[tuple[Path, str]]) -> str:
+    """Generates markdown table for TOC."""
+    lines = []
+    lines.append("| 파일명 | 최종 수정일 |") # Korean header
+    lines.append("|--------|-------------|")
+    for file_path, commit_date in files_data:
+        link_path = urllib.parse.quote(str(file_path).replace("\\", "/"))
+        link_text = file_path.stem
+        lines.append(f"| [{link_text}]({link_path}) | {commit_date} |")
+    return "\n".join(lines)
+
+def replace_content_between_tags(content: str, start_tag: str, end_tag: str, new_inner_content: str) -> tuple[str, bool]:
+    """Replaces content between start and end tags. Returns (new_content, changed_flag)."""
+    start_index = content.find(start_tag)
+    if start_index == -1:
+        print(f"Error: Start tag '{start_tag}' not found.", file=sys.stderr)
+        return content, False
+
+    end_index = content.find(end_tag, start_index + len(start_tag))
+    if end_index == -1:
+        print(f"Error: End tag '{end_tag}' not found after start tag.", file=sys.stderr)
+        return content, False
+
+    # Construct the new content
+    new_content = (
+        content[:start_index + len(start_tag)] + # Keep start tag
+        "\n" + new_inner_content + "\n" +         # Add newline, new content, newline
+        content[end_index:]                       # Keep end tag and rest of file
+    )
+    
+    # Check if content actually changed (ignoring potential whitespace differences initially added)
+    # A more robust check might compare the core inner content before/after
+    original_inner_content_start = start_index + len(start_tag)
+    original_inner_content_end = end_index
+    original_inner_content = content[original_inner_content_start:original_inner_content_end].strip()
+    
+    changed = original_inner_content != new_inner_content.strip()
+    
+    return new_content, changed
+
+
+def main():
+    """Main function to update the README."""
+    if not README_PATH.is_file():
+        print(f"Error: {README_PATH} not found!", file=sys.stderr)
+        sys.exit(1)
+
+    print("Processing notes...")
+    files_data = get_markdown_files_data()
+
+    print("Generating new sections...")
+    recent_notes_section = generate_recent_notes_md(files_data)
+    toc_section = generate_toc_md(files_data)
+
+    print(f"Reading {README_PATH}...")
     try:
-        readme_path = "README.md"
-        with open(readme_path, 'r', encoding='utf-8') as f:
-            content = f.read()
-
-        # 파일 목록과 커밋 날짜 가져오기 (한 번만 호출)
-        files_data = get_files_with_commit_dates()
-
-        # 최근 수정된 파일 목록 변경
-        recent_section = get_recent_changes(files_data) # max_items 기본값 사용
-        content = re.sub(
-            r"(\s*).*(?=\s*)", # 시작 태그 바로 다음부터 끝 태그 직전까지 매칭
-            r"\1" + recent_section.strip(), # 시작 태그 + 새로운 내용 (앞뒤 공백 제거)
-            content,
-            flags=re.DOTALL | re.IGNORECASE, # DOTALL: 개행문자 포함, IGNORECASE: 대소문자 무시
-        )
-
-        # 전체 노트 TOC 업데이트
-        toc_section = get_full_note_list(files_data)
-        content = re.sub(
-            r"(\s*).*(?=\s*)", # 시작 태그 바로 다음부터 끝 태그 직전까지 매칭
-            r"\1" + toc_section.strip(), # 시작 태그 + 새로운 내용 (앞뒤 공백 제거)
-            content,
-            flags=re.DOTALL | re.IGNORECASE, # DOTALL: 개행문자 포함, IGNORECASE: 대소문자 무시
-        )
-
-        with open(readme_path, 'w', encoding='utf-8') as f:
-            f.write(content)
-
-        print("README.md 업데이트 완료")
-
+        original_content = README_PATH.read_text(encoding='utf-8')
+        content = original_content # Start with original content
     except Exception as e:
-        print(f"README 업데이트 오류: {e}")
-        # 오류 발생 시 스크립트 실패 처리 (GitHub Actions에서 인지하도록)
-        exit(1)
+        print(f"Error reading {README_PATH}: {e}", file=sys.stderr)
+        sys.exit(1)
+
+    print("Updating Recent Notes section...")
+    content, changed1 = replace_content_between_tags(content, RECENT_NOTES_TAG_START, RECENT_NOTES_TAG_END, recent_notes_section)
+
+    print("Updating TOC section...")
+    content, changed2 = replace_content_between_tags(content, TOC_TAG_START, TOC_TAG_END, toc_section)
+
+    if changed1 or changed2:
+        print(f"Changes detected. Writing updated content to {README_PATH}...")
+        try:
+            README_PATH.write_text(content, encoding='utf-8')
+            print("README.md successfully updated.")
+        except Exception as e:
+            print(f"Error writing to {README_PATH}: {e}", file=sys.stderr)
+            sys.exit(1)
+    else:
+        print("No changes needed in README.md.")
 
 if __name__ == "__main__":
-    update_readme()
+    main()

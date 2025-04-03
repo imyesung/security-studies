@@ -4,38 +4,51 @@ on:
   push:
     branches: [ main, master ]
     paths-ignore:
-      - 'README.md'
+      - 'README.md' # README.md 파일 변경 시에는 실행 안 함
+      - '.github/workflows/**' # 워크플로우 변경 시에는 실행 안 함 (선택 사항)
   schedule:
-    - cron: '0 0 * * *'  # 매일 자정(UTC) 자동 실행
+    # UTC 기준 매일 자정 실행 (한국 시간 오전 9시)
+    - cron: '0 0 * * *'
+  workflow_dispatch: # 수동 실행 가능하도록 추가
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
+    # Job을 실행하는 Runner에 콘텐츠 쓰기 권한 부여
     permissions:
       contents: write
 
     steps:
-    - uses: actions/checkout@v3
-      with:
-        fetch-depth: 0  # 전체 커밋 히스토리 필요
+      # 1. 리포지토리 코드 Checkout (전체 히스토리 필요)
+      - name: Checkout repository
+        uses: actions/checkout@v4 # 최신 버전 사용 권장
+        with:
+          fetch-depth: 0 # Git 히스토리 전체를 가져옴 (last commit date 조회 위해 필수)
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
+      # 2. Python 환경 설정
+      - name: Set up Python
+        uses: actions/setup-python@v5 # 최신 버전 사용 권장
+        with:
+          python-version: '3.11' # 원하는 Python 버전 사용
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
+      # 3. 스크립트 실행 (별도 의존성 설치 불필요)
+      - name: Update README with recent changes
+        run: |
+          python .github/scripts/update_readme.py
 
-    - name: Update README with recent changes
-      run: |
-        python .github/scripts/update_readme.py
-
-    - name: Commit and push if changed
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add README.md
-        git diff --staged --quiet || git commit -m "auto-update: README recent notes update"
-        git push
+      # 4. 변경 사항이 있을 경우 커밋 및 푸시
+      - name: Commit and push if changed
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          # README.md만 스테이징
+          git add README.md
+          # 변경 사항이 있는지 확인 후 커밋 (없으면 commit 명령어 실패 방지)
+          # git diff --staged --quiet || git commit -m "docs: Update Recent Notes and TOC in README [skip ci]"
+          # 또는 아래처럼 변경사항 있으면 커밋, 없으면 통과
+          if ! git diff --staged --quiet; then
+            git commit -m "docs: Update Recent Notes and TOC in README" -m "Automated update via GitHub Action."
+            git push
+          else
+            echo "No changes to commit."
+          fi
