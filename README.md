@@ -12,9 +12,9 @@
 <!-- RECENT_CHANGES -->
 - [understand-memory-layout-and-structure.md](understand-memory-layout-and-structure.md) - 2025-04-03
 - [lang-c-memory-type-system.md](lang-c-memory-type-system.md) - 2025-04-03
+- [mapping-proxy-architecture-to-database-selection.md](mapping-proxy-architecture-to-database-selection.md) - 2025-04-03
 - [trace-buffer-lifecycle.md](trace-buffer-lifecycle.md) - 2025-04-03
 - [extract-and-analyze-proc-maps.md](extract-and-analyze-proc-maps.md) - 2025-04-03
-- [hooking-runtime-file-access.md](hooking-runtime-file-access.md) - 2025-04-03
 
 <!-- RECENT_CHANGES_END -->
 
@@ -24,6 +24,7 @@
 |------|--------|
 | [understand-memory-layout-and-structure.md](understand-memory-layout-and-structure.md) | 2025-04-03 |
 | [lang-c-memory-type-system.md](lang-c-memory-type-system.md) | 2025-04-03 |
+| [mapping-proxy-architecture-to-database-selection.md](mapping-proxy-architecture-to-database-selection.md) | 2025-04-03 |
 | [trace-buffer-lifecycle.md](trace-buffer-lifecycle.md) | 2025-04-03 |
 | [extract-and-analyze-proc-maps.md](extract-and-analyze-proc-maps.md) | 2025-04-03 |
 | [hooking-runtime-file-access.md](hooking-runtime-file-access.md) | 2025-04-03 |
