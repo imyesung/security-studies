@@ -198,7 +198,7 @@ int main() {
         - +0~+32: 정상 버퍼
         - +36~+40: Saved EBP
         - +40~+44: Return Address (RET)
-    - GDB에서 `x/32x &buf`, Pwntools `cyclic()/cyclic_find()`로 침범 위치 확인 가능
+    - GDB에서 `x/32x &buf`, Pwntools `cyclic()`/`cyclic_find()`로 침범 위치 확인 가능
     
 - **How are standard library output buffers managed, and when does flushing occur?**
 
@@ -214,7 +214,7 @@ int main() {
                    │
           +------------------------+
           |   Flush Conditions     |
-          |  - Newline (\\n)        |
+          |  - Newline (\\n)       |
           |  - fflush(stdout)      |
           |  - Buffer full         |
           |  - Program ends        |
