@@ -11,11 +11,11 @@
 ## Recent Notes
 
 <!-- RECENT_NOTES_START -->
+- [exploit-session-as-auth-boundary](exploit-session-as-auth-boundary.md) - 2025-04-25
 - [trace-buffer-lifecycle](trace-buffer-lifecycle.md) - 2025-04-20
 - [pwntools-core-workflow](pwntools-core-workflow.md) - 2025-04-20
 - [understand-the-TCP-3-way-handshake](understand-the-TCP-3-way-handshake.md) - 2025-04-10
 - [mapping-proxy-architecture-to-database-selection](mapping-proxy-architecture-to-database-selection.md) - 2025-04-03
-- [dropper-overview](dropper-overview.md) - 2025-03-31
 <!-- RECENT_NOTES_END -->
 
 ## TOC
@@ -23,6 +23,7 @@
 <!-- TOC_START -->
 | 파일명 | 최종 수정일 |
 |--------|-------------|
+| [exploit-session-as-auth-boundary](exploit-session-as-auth-boundary.md) | 2025-04-25 |
 | [trace-buffer-lifecycle](trace-buffer-lifecycle.md) | 2025-04-20 |
 | [pwntools-core-workflow](pwntools-core-workflow.md) | 2025-04-20 |
 | [understand-the-TCP-3-way-handshake](understand-the-TCP-3-way-handshake.md) | 2025-04-10 |
