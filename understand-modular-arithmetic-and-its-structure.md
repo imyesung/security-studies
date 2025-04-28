@@ -89,15 +89,12 @@ x \equiv y \pmod{n} \quad \iff \quad n \mid (x-y)
 $$
 
 이 합동 관계는 아래를 모두 만족하는 **동치 관계(equivalence relation)** 이다.
-- **반사성(reflexive)**: 어떤 수  $x$는 항상 자기 자신과 합동이다.  $$x \equiv x \pmod{n}$$
+- **반사성(reflexive)**: 어떤 수  $x$는 항상 자기 자신과 합동이다.
+  > $$x \equiv x \pmod{n}$$
 - **대칭성(symmetric)**: $x \equiv y \pmod{n}$이면, $y \equiv x \pmod{n}$이다.  
-  $$
-  x \equiv y \pmod{n} \quad \Rightarrow \quad y \equiv x \pmod{n}
-  $$
+  > $$x \equiv y \pmod{n} \quad \Rightarrow \quad y \equiv x \pmod{n}$$
 - **추이성(transitive)**: $x \equiv y \pmod{n}$이고 $y \equiv z \pmod{n}$이면, $x \equiv z \pmod{n}$이다.  
-  $$
-  x \equiv y \pmod{n}, \quad y \equiv z \pmod{n} \quad \Rightarrow \quad x \equiv z \pmod{n}
-  $$
+  > $$x \equiv y \pmod{n}, \quad y \equiv z \pmod{n} \quad \Rightarrow \quad x \equiv z \pmod{n}$$
 
 ### Wind: 원형 구조 만들기
 접힌 나머지 값을 순환하는 원형으로 배열한다. 이로써 **유한 순환군(cyclic group)**이 완성된다.
@@ -116,8 +113,10 @@ Wind (mod 5)
 - 덧셈/곱셈이 이 원형 안에서 닫힌다.
 - `4+1=5≡0`, `2+3=5≡0` 등 순환을 보여준다.
 
-이 구조가 바로 **$\mathbb{Z}/5\mathbb{Z}$** 또는 **$\mathbb{Z}_5$**인 **모듈러 환(modular ring)**이다.
+이 구조가 바로 $\mathbb{Z}/5\mathbb{Z}$ 또는 $\mathbb{Z}_5$인 **모듈러 환(modular ring)**이다.
 
 ## Note
-`Cut`은 무한 정수선에 **몫과 나머지(divison with remainder)** 구조를 설정하여 경계를 세우고, `Fold`는 나머지 값에 따라 **동치류(partition into equivalence classes)**로 분할하여 유한 집합을 만들며, `Wind`는 이 집합 위에 **유한 순환군(finite cyclic group)** 구조를 부여하여 새로운 연산 체계를 완성한다. 
+`Cut`은 무한 정수선에 **몫과 나머지(divison with remainder)** 구조를 설정하여 경계를 세우고,<br>
+`Fold`는 나머지 값에 따라 동치류(partition into equivalence classes)로 분할하여 유한 집합을 만들며,<br>
+`Wind`는 이 집합 위에 유한 순환군(finite cyclic group)구조를 부여하여 새로운 연산 체계를 완성한다.<br>
 이 `Cut → Fold → Wind` 과정은 단순한 수학 계산이 아니라, 무한을 유한으로 재구성하는 수학적 방법론이자, 새로운 연산 세계를 설계하는 방식이다.
