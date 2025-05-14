@@ -11,11 +11,11 @@
 ## Recent Notes
 
 <!-- RECENT_NOTES_START -->
+- [dropper-alternative-vectors](dropper-alternative-vectors.md) - 2025-05-14
 - [understand-modular-arithmetic-and-its-structure](understand-modular-arithmetic-and-its-structure.md) - 2025-04-28
 - [exploit-session-as-auth-boundary](exploit-session-as-auth-boundary.md) - 2025-04-25
 - [trace-buffer-lifecycle](trace-buffer-lifecycle.md) - 2025-04-20
 - [pwntools-core-workflow](pwntools-core-workflow.md) - 2025-04-20
-- [understand-the-TCP-3-way-handshake](understand-the-TCP-3-way-handshake.md) - 2025-04-10
 <!-- RECENT_NOTES_END -->
 
 ## TOC
@@ -23,6 +23,7 @@
 <!-- TOC_START -->
 | 파일명 | 최종 수정일 |
 |--------|-------------|
+| [dropper-alternative-vectors](dropper-alternative-vectors.md) | 2025-05-14 |
 | [understand-modular-arithmetic-and-its-structure](understand-modular-arithmetic-and-its-structure.md) | 2025-04-28 |
 | [exploit-session-as-auth-boundary](exploit-session-as-auth-boundary.md) | 2025-04-25 |
 | [trace-buffer-lifecycle](trace-buffer-lifecycle.md) | 2025-04-20 |
@@ -33,8 +34,8 @@
 | [dropper-simulation](dropper-simulation.md) | 2025-03-28 |
 | [lang-c-memory-type-system](lang-c-memory-type-system.md) | 2025-03-28 |
 | [understand-memory-layout-and-structure](understand-memory-layout-and-structure.md) | 2025-03-27 |
-| [extract-and-analyze-proc-maps](extract-and-analyze-proc-maps.md) | 2025-03-26 |
 | [hooking-runtime-file-access](hooking-runtime-file-access.md) | 2025-03-26 |
+| [extract-and-analyze-proc-maps](extract-and-analyze-proc-maps.md) | 2025-03-26 |
 <!-- TOC_END -->
 
 ## Note Format
