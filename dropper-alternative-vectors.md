@@ -1,6 +1,6 @@
 ## Context
 - **Tactic**: Alternative Execution Surface Exploration
-- **Technique**: Non-Traditional Dropper Engineering
+- **Technique**: Interpreter-Based Payload Delivery
 - **Procedure**:
     - Utilize system-native interpreters (PowerShell, VBA, JavaScript) for payload execution
     - Implement anti-detection mechanisms through interpreted language features

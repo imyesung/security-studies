@@ -118,6 +118,11 @@ int main() {
 - **Technique**: Dropper Simulation & In-Memory Execution Models
 - **Procedure**: Simulate dropper behavior including persistence, obfuscation, anti-analysis, and payload deployment
 
+**[dropper-alternative-vectors.md](dropper-alternative-vectors.md)**
+- **Tactic**: - Alternative Execution Surface Exploration
+- **Technique**: Interpreter-Based Payload Delivery
+- **Procedure**: Leverage system interpreters to deliver payloads, evade static detection, and perform in-memory execution across platforms
+
 **dropper-analysis-methods.md**
 - **Tactic:** Threat Traceability
 - **Technique:** Static & Dynamic Binary Analysis
